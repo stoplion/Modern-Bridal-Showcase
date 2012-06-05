@@ -1,0 +1,72 @@
+@import "compass"
+
+//+reset-html5
++global-reset
+
+html
+	background: #dae5e3
+	height: 100%
+
+body
+	width: 960px
+	height: 100%
+	margin: 0 auto
+	padding-top: 32px
+
+header
+	background: url('../images/header.png') no-repeat 0 0
+	height: 228px
+
+nav
+	ul
+		+horizontal-list
+		li
+			+horizontal-list-item(0, left)
+			background-color: #eae5d5
+			width: 20%
+			text-align: center
+			padding: 12px 0
+			text-transform: uppercase
+			font-family: sans-serif
+			font-size: 0.82em
+			letter-spacing: .2em
+			&:hover
+				background-color: #e1dbca	
+			a
+				+link-colors(#858171, #23231e)
+				+unstyled-link
+
+
+#content,
+#main,
+aside
+	min-height: 100%
+
+
+#content
+	background: white
+
+#main
+	+box-sizing(border-box)
+	width: 	67.2%
+	margin: 5.4%
+	padding: 56px
+	float: left
+	border-width: 20px
+	-webkit-border-image: url("../images/frame_pattern.png") 20 20 20 20 stretch
+
+aside
+	width: 18%
+	float: right
+	padding: 2%
+
+.flag
+	color: #d9cf9e
+	position: relative
+	right: 16px
+	margin-bottom: 8px
+	+squish-text
+	&.get_tickets
+		+replace-text-with-dimensions('../images/exhibit.png', 17px 223px)
+	&.exhibit_with_us	
+		+replace-text-with-dimensions('../images/tickets.png', 17px 223px)
