@@ -10,7 +10,7 @@
     <%= yield_content :head %>
   </head>
   
-  <body class="<%= page_classes %>">
+  <body class="<%= @page_class %>">
 
     <div id="content">
       <%= partial "partials/header" %>
@@ -21,7 +21,10 @@
       </div>
 
       <%= partial "partials/sidebar" %> 
+
+      <div class="sandler_graphic"></div>
     </div>
+    <%= partial "partials/footer" %> 
 
   </body>
 </html>

@@ -3,6 +3,9 @@
 //+reset-html5
 +global-reset
 
+=sans-font-stack
+	font-family: helvetica, arial, sans-serif
+
 html
 	background: #dae5e3
 	height: 100%
@@ -44,16 +47,105 @@ aside
 
 
 #content
-	background: white
+	+background(url("../images/flower.png") no-repeat 74% 273px, url('../images/background.png') repeat)
+	+pie-clearfix
+	+box-shadow(rgba(0, 0, 0, 0.25) 0 3px 6px 2px)
+	position: relative
+	overflow: visible
+
+
+#centered_big_body_text
+	text-align: center
+	line-height: 30px
+	letter-spacing: 0.06em
+	text-transform: capitalize
+
+#script_header
+	font-size: 80px
+	font-family: cursive
+	text-align: center
+	color: #a1989c
+	margin-bottom: 14px
 
 #main
 	+box-sizing(border-box)
+	background: rgba(255, 255, 255, 0.4)
 	width: 	67.2%
 	margin: 5.4%
-	padding: 56px
+	padding: 15px 56px 30px
 	float: left
 	border-width: 20px
+	z-index: 100
+	position: relative
 	-webkit-border-image: url("../images/frame_pattern.png") 20 20 20 20 stretch
+	p
+		color: #6B6462
+		font-family: georgia
+		font-size: 17px
+	h1
+		@extend #script_header
+
+
+.sandler_graphic
+	float: left
+	clear: both
+	width: 100%
+	height: 298px
+	background: url("../images/sandler.png") no-repeat 0 0
+
+em
+	font-weight: bold
+
+#small_purple_text
+	+sans-font-stack
+	line-height: 17px
+	color: #8c74a2
+	text-transform: uppercase
+	font-size: 13px
+		
+
+#pink_button
+	+box-shadow(#ECC6B8 0 0 5px 2px inset, #e0b7b0 -2px 2px 0 0)
+	+border-radius(2px)
+	background: #f0d8d0
+	padding: 3px 27px
+	color: #726861
+	text-decoration: none
+	float: right
+	font:
+		family: helvetica, arial, sans-serif
+		size: 0.73em
+	letter-spacing: 0.3em
+	text-transform: uppercase
+	&:hover
+		background: darken(#f0d8d0, 2%)
+
+
+
+
+
+.home_page
+	#main
+		h1
+			+hide-text
+			margin-bottom: -14px
+			background:
+				image: url("../images/experience.png")
+				repeat: no-repeat
+				position: top center
+			height: 114px
+			width: 100%
+		.location
+			@extend #small_purple_text
+			float: left
+		p.experience
+			margin-bottom: 48px
+		p
+			@extend #centered_big_body_text
+		.directions
+			a
+				@extend #pink_button
+
 
 aside
 	width: 18%
@@ -70,3 +162,22 @@ aside
 		+replace-text-with-dimensions('../images/exhibit.png', 17px 223px)
 	&.exhibit_with_us	
 		+replace-text-with-dimensions('../images/tickets.png', 17px 223px)
+
+ul#footer
+	+pie-clearfix
+	li
+		padding: 30px
+		a
+			+unstyled-link
+			font-size: 0.8em
+			color: #8d9a98
+			text-transform: uppercase
+	li.private_policy,
+	li.photo_credits,
+		+sans-font-stack
+		letter-spacing: 1px
+		float: left
+	li.rights_reseved
+		float: right
+		font-family: georgia
+		letter-spacing: 3px
