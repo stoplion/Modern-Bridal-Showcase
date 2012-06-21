@@ -2,9 +2,67 @@
 
 //+reset-html5
 +global-reset
+$goldy: #7d7272
+$blaze_purple: #6c3991
+
+
+
+em
+	font-style: italic
+	font-weight: normal 
+
+=block
+	display: block
+
+=no_decor
+	text-decoration: none
+
+=center
+	text-align: center
+
+=serif-font-stack
+	font-family: georgia, serif
 
 =sans-font-stack
 	font-family: helvetica, arial, sans-serif
+
+=goldy_body_style
+	+sans-font-stack
+	color: $goldy
+	line-height: 23px
+	font-size: 0.9em
+	padding-bottom: 1.3em
+
+b
+	font-weight: bold
+
+//-----extendable youth..
+
+#big_ass_headline
+	font:
+		family: 'News Cycle', helvetica, arial, sans-serif
+		size: 29px
+	letter-spacing: 0.1em
+	color: #ACA498
+	margin-top: 0.25em
+
+#curvive_subhead
+	font:
+		style: italic
+		size: 1.1em
+	color: $goldy
+	+center
+	line-height: 21px
+	+block
+	margin-bottom: 1.9em
+
+#page_section
+	p
+		+goldy_body_style
+
+
+//--------------
+
 
 html
 	background: #dae5e3
@@ -18,26 +76,30 @@ body
 
 header
 	background: url('../images/header.png') no-repeat 0 0
-	height: 228px
+	height: 227px
 
 nav
 	ul
 		+horizontal-list
 		li
 			+horizontal-list-item(0, left)
+			+center
 			background-color: #eae5d5
 			width: 20%
-			text-align: center
 			padding: 12px 0
 			text-transform: uppercase
-			font-family: sans-serif
+			font-family: 'Arimo', sans-serif
 			font-size: 0.82em
 			letter-spacing: .2em
-			&:hover
-				background-color: #e1dbca	
-			a
-				+link-colors(#858171, #23231e)
-				+unstyled-link
+		li:hover
+			background-color: #e2ddce
+		li.current
+			background-color: #D8D1BE
+		a
+			+link-colors(#7C7869, #5f5c50)
+			+unstyled-link
+			+text-shadow(1px 1px rgba(255, 255, 255, 0.34))
+
 
 
 #content,
@@ -47,7 +109,7 @@ aside
 
 
 #content
-	+background(url("../images/flower.png") no-repeat 74% 273px, url('../images/background.png') repeat)
+	+background(url("../images/flower.png") no-repeat 74% 273px, url('../images/flowersmall.png') 244px 89% no-repeat, url('../images/background.png') repeat)
 	+pie-clearfix
 	+box-shadow(rgba(0, 0, 0, 0.25) 0 3px 6px 2px)
 	position: relative
@@ -55,15 +117,18 @@ aside
 
 
 #centered_big_body_text
-	text-align: center
+	+center
+	+serif-font-stack
 	line-height: 30px
 	letter-spacing: 0.06em
 	text-transform: capitalize
+	color: $goldy
+	font-size: 17px
 
 #script_header
+	+center
 	font-size: 80px
 	font-family: cursive
-	text-align: center
 	color: #a1989c
 	margin-bottom: 14px
 
@@ -72,16 +137,12 @@ aside
 	background: rgba(255, 255, 255, 0.4)
 	width: 	67.2%
 	margin: 5.4%
-	padding: 15px 56px 30px
+	padding: 15px 33px 30px
 	float: left
 	border-width: 20px
 	z-index: 100
 	position: relative
 	-webkit-border-image: url("../images/frame_pattern.png") 20 20 20 20 stretch
-	p
-		color: #6B6462
-		font-family: georgia
-		font-size: 17px
 	h1
 		@extend #script_header
 
@@ -93,32 +154,43 @@ aside
 	height: 298px
 	background: url("../images/sandler.png") no-repeat 0 0
 
-em
-	font-weight: bold
 
 #small_purple_text
 	+sans-font-stack
 	line-height: 17px
 	color: #8c74a2
 	text-transform: uppercase
-	font-size: 13px
+	font-size: 14px
 		
 
 #pink_button
 	+box-shadow(#ECC6B8 0 0 5px 2px inset, #e0b7b0 -2px 2px 0 0)
 	+border-radius(2px)
+	+text-shadow(1px 1px rgba(255, 255, 255, 0.45))
+	+no_decor
+	+inline-block
+	line-height: 30px
+	position: relative
 	background: #f0d8d0
 	padding: 3px 27px
 	color: #726861
-	text-decoration: none
 	float: right
 	font:
-		family: helvetica, arial, sans-serif
+		family: 'Arimo', helvetica, arial, sans-serif
 		size: 0.73em
 	letter-spacing: 0.3em
-	text-transform: uppercase
+	text:
+		transform: uppercase
+		align: center
 	&:hover
+		+box-shadow(#e6c1b3 0 0 5px 2px inset, #dab2ac -2px 2px 0 0)
 		background: darken(#f0d8d0, 2%)
+	&:active
+		+box-shadow(#d7b5a7 0 0 5px 2px inset)
+		top: 2px
+		right: 2px
+		background: darken(#f0d8d0, 2%)
+
 
 
 
@@ -138,9 +210,10 @@ em
 		.location
 			@extend #small_purple_text
 			float: left
+			span
+				text-transform: capitalize
 		p.experience
 			margin-bottom: 48px
-		p
 			@extend #centered_big_body_text
 		.directions
 			a
@@ -151,6 +224,33 @@ aside
 	width: 18%
 	float: right
 	padding: 2%
+	ul.sponsors
+		li 
+			+box-sizing(border-box)
+			margin-bottom: 12px
+			a
+				+block
+				margin-bottom: 1px
+				padding: 12px
+			h2
+				+sans-font-stack
+				+center
+				font-family: 'News Cycle', sans-serif
+				letter-spacing: 1px
+				font-size: 20px
+				text-transform: uppercase
+				color: #88807c
+				margin: 31px 0 23px
+		li.creative_catering 
+			a
+				+replace-text-with-dimensions('../images/ccov.png')
+		li.premier_bride 
+			a
+				+replace-text-with-dimensions('../images/premierbride.png')
+		li.annalily 
+			a
+				+replace-text-with-dimensions('../images/annalily.png')
+
 
 .flag
 	color: #d9cf9e
@@ -159,9 +259,13 @@ aside
 	margin-bottom: 8px
 	+squish-text
 	&.get_tickets
-		+replace-text-with-dimensions('../images/exhibit.png', 17px 223px)
+		a
+			+replace-text-with-dimensions('../images/exhibit.png', 17px 223px)
+			+block
 	&.exhibit_with_us	
-		+replace-text-with-dimensions('../images/tickets.png', 17px 223px)
+		a
+			+replace-text-with-dimensions('../images/tickets.png', 17px 223px)
+			+block
 
 ul#footer
 	+pie-clearfix
@@ -178,6 +282,82 @@ ul#footer
 		letter-spacing: 1px
 		float: left
 	li.rights_reseved
+		+serif-font-stack
 		float: right
-		font-family: georgia
 		letter-spacing: 3px
+
+
+
+.about,
+.contact_us,
+.our_exhibitors,
+.bridal_show_tips,
+.exhibit_with_us
+	#main
+		h1
+			@extend #big_ass_headline
+		i
+			@extend #curvive_subhead
+		section
+			@extend #page_section
+
+
+.exhibit_with_us	
+	a.request_info
+		@extend #pink_button
+		margin: 0 auto
+		float: none
+		display: block
+		width: 40%
+	p
+		+goldy_body_style
+
+
+.bridal_show_tips
+	ul.tips
+		padding-bottom: 2em
+		li
+			+sans-font-stack
+			line-height: 1.4em
+			list-style-type: disc
+			color: $goldy
+			margin-bottom: 1em
+			em
+				font-style: normal
+				color: $blaze_purple
+
+
+.contact_us
+	address,
+	.email_link,
+	.phone_number
+		+center
+		@extend #small_purple_text
+		font-family: 'Arimo', helvetica, arial, sans-serif
+		line-height: 20px
+
+	.other_details
+		+center
+		.email_link,
+		.phone_number
+			a
+				+no_decor
+				@extend #small_purple_text
+		.phone_number
+			padding: 1em 0
+			a
+				font-size: 1.8em
+
+
+.our_exhibitors
+	#main
+		h1
+			margin-bottom: 0.8em
+	ul.col_one, 
+	ul.col_two, 
+	ul.col_three
+		color: $goldy
+		font-style: italic
+		float: left
+		width: 33%
+		line-height: 33px
