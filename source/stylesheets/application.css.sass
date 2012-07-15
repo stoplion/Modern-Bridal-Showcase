@@ -65,7 +65,7 @@ b
 
 
 html
-	background: #dae5e3
+	background: url('../images/blueback.png') repeat 0 0 #dae5e3
 	height: 100%
 
 body
@@ -109,7 +109,7 @@ aside
 
 
 #content
-	+background(url("../images/flower.png") no-repeat 74% 273px, url('../images/flowersmall.png') 244px 89% no-repeat, url('../images/background.png') repeat)
+	+background(url("../images/flowerbig.png") no-repeat 65% 337px, url('../images/flowersmall.png') 244px 89% no-repeat, url('../images/background.png') repeat)
 	+pie-clearfix
 	+box-shadow(rgba(0, 0, 0, 0.25) 0 3px 6px 2px)
 	position: relative
@@ -134,7 +134,7 @@ aside
 
 #main
 	+box-sizing(border-box)
-	background: rgba(255, 255, 255, 0.4)
+	background: rgba(255, 255, 255, 0.5)
 	width: 	67.2%
 	margin: 5.4%
 	padding: 15px 33px 30px
@@ -210,6 +210,7 @@ aside
 		.location
 			@extend #small_purple_text
 			float: left
+			text-align: center
 			span
 				text-transform: capitalize
 		p.experience
@@ -248,9 +249,9 @@ aside
 			a
 				+replace-text-with-dimensions('../images/premierbride.png')
 		li.annalily 
+			margin-top: 46px
 			a
 				+replace-text-with-dimensions('../images/annalily.png')
-
 
 .flag
 	color: #d9cf9e
@@ -292,7 +293,8 @@ ul#footer
 .contact_us,
 .our_exhibitors,
 .bridal_show_tips,
-.exhibit_with_us
+.exhibit_with_us,
+.private_policy
 	#main
 		h1
 			@extend #big_ass_headline
