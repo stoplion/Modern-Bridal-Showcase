@@ -45,6 +45,9 @@ a img {
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block; }
 
+.mbs_video {
+  margin-top: 20px; }
+
 em {
   font-style: italic;
   font-weight: normal; }
@@ -439,10 +442,9 @@ ul#footer {
 .our_exhibitors #main h1 {
   margin-bottom: 0.8em; }
 .our_exhibitors ul.col_one,
-.our_exhibitors ul.col_two,
-.our_exhibitors ul.col_three {
+.our_exhibitors ul.col_two {
   color: #7d7272;
   font-style: italic;
   float: left;
-  width: 33%;
+  width: 50%;
   line-height: 33px; }
