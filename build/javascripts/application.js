@@ -1,1 +1,0 @@
-(function(){$(function(){var a,b;return a=((b=window.location.pathname.match(/[^\/]+$/))!=null?b[0]:void 0)||"index.html",$("nav a").each(function(){if($(this).attr("href")===a)return $(this).parent("li").addClass("current")})})}).call(this);
